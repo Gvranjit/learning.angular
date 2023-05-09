@@ -1,11 +1,13 @@
 <label for="serverName">Server Name</label><br />
-<input
+<!-- <input
   type="text"
   name="serverName"
   id="serverName"
   (input)="onServerNameInput($event)"
-/>
-<h3>{{ serverName }}</h3>
+/> -->
+<input type="text" name="serverName" id="serverName" [(ngModel)]="serverName" />
+
+<br /><br />
 <input
   type="button"
   [disabled]="!allowNewServe"
@@ -18,7 +20,14 @@
 <p [innerText]="allowNewServe"></p>
 <div>
   Server creation status :
-  <p class="h4">{{ serverCreationStatus }}</p>
+  <p class="h3" *ngIf="serverCreationStatus" else noServer>
+    Server was created : {{ serverName }}
+  </p>
+  <ng-template #noServer>
+    <p>No server was created!</p>
+  </ng-template>
 </div>
 
+<app-server></app-server>
+<app-server></app-server>
 <app-server></app-server>
