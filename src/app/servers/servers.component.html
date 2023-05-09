@@ -1,0 +1,10 @@
+<input
+  type="button"
+  [disabled]="!allowNewServe"
+  value="Add Server"
+  class="btn btn-primary"
+/>
+<p>Allow new server : {{ allowNewServe }}</p>
+<p [innerText]="allowNewServe"></p>
+
+<app-server></app-server>
