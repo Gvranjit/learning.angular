@@ -10,6 +10,7 @@ export class ServersComponent {
   allowNewServe = false;
   serverCreationStatus = false;
   serverName = 'Test Server Yeah ';
+  servers = ['Test Server', 'Test Server 2'];
   constructor() {
     setTimeout(() => {
       this.allowNewServe = true;
@@ -18,6 +19,7 @@ export class ServersComponent {
 
   onServerCreate() {
     this.serverCreationStatus = true;
+    this.servers.push(this.serverName);
   }
   // onServerNameInput(event: { target: HTMLInputElement }) {
   //   this.serverName = event.target.value;
