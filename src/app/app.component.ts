@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = "Gaurav's New Angular App - Only for learning purposes";
   name = 'Code';
+  currentPage = 'shopping';
+
+  updateCurrentPage(e: string) {
+    this.currentPage = e;
+  }
 }

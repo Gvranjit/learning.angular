@@ -1,6 +1,6 @@
-<app-header></app-header>
+<app-header (menuSelect)="updateCurrentPage($event)"></app-header>
 <div class="container">
-  <app-recipe-book></app-recipe-book>
-  <app-shopping></app-shopping>
+  <app-recipe-book *ngIf="currentPage == 'recipe'"></app-recipe-book>
+  <app-shopping *ngIf="currentPage == 'shopping'"></app-shopping>
 </div>
 <hr />
