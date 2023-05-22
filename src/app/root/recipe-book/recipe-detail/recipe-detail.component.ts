@@ -13,5 +13,9 @@ export class RecipeDetailComponent {
     'path',
     'string'
   );
+  openManageRecipeDropdown: boolean;
   // recipe: Recipe = new Recipe('test', 'test', 'path', 'string');
+  toggleManageRecipeDropdown() {
+    this.openManageRecipeDropdown = !this.openManageRecipeDropdown;
+  }
 }
