@@ -19,7 +19,7 @@
 \*ngIf
 ```
 
-- Uses <ng-template/> under the hood to conditionally display content. Uses `[ngIf]` without the star
+- Uses `<ng-template/>` under the hood to conditionally display content. Uses `[ngIf]` without the star
 
 ```ts
 @Input set directiveName(condition:boolean) {
@@ -40,8 +40,41 @@
 
 # [ngSwitch]
 
-### \*ngSwitchCase - \*ngSwitchDefault
+## \*ngSwitchCase - \*ngSwitchDefault
 
 - This might be better in case there are lots of ngIfs
 
 ---
+
+# Services & Dependency Injector ( Hierarchical Injector )
+
+```ts
+import {LogService}  from "./log.service.ts"
+@Component({
+    // ...
+    providers: [LogService],
+})
+// ...
+constructor (private logService:LogService) {}
+
+```
+
+### The `inject` method
+
+```ts
+import {LogService}  from "./log.service.ts"
+@Component({
+    // ...
+})
+// ...
+private logService:LogService
+constructor () {
+    this.logService =  inject(LogService)
+}
+```
+
+## Creating a data service
+
+- The same instance of the service is shared with all the components down in the hierarchial tree
+- Only define once in provider, in the top-most
+- In order to share data, set emitter in the service , emit from the source component, and subscribe in the target component.
