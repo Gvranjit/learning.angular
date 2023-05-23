@@ -22,8 +22,8 @@ export class RecipeListComponent {
       'another ingredient'
     ),
   ];
-  showRecipeDetail(event: Recipe) {
-    this.setRecipeDetail.emit(event);
-  }
+  // showRecipeDetail(event: Recipe) {
+  //   this.setRecipeDetail.emit(event);
+  // }
   constructor() {}
 }

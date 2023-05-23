@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Recipe } from './recipe.model';
+import { RecipeService } from '../../shared/recipe.service';
 
 @Component({
   selector: 'app-recipe',
@@ -8,11 +9,12 @@ import { Recipe } from './recipe.model';
 })
 export class RecipeComponent {
   @Input() recipe: Recipe;
-  @Output() recipeSelect = new EventEmitter<Recipe>();
+  // @Output() recipeSelect = new EventEmitter<Recipe>();
+  //when one of the recipes is clicked, emit their data so that it can caught by the details component
+  constructor(private recipeService: RecipeService) {}
 
-  //when one of the recipes is clicked, emit their data so that it cant caught by the details component
   onRecipeSelect(event: Recipe) {
-    console.log(event);
-    this.recipeSelect.emit(event);
+    // this.recipeSelect.emit(event);
+    this.recipeService.selectRecipe(event);
   }
 }

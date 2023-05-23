@@ -8,8 +8,8 @@ import { Recipe } from './recipe/recipe.model';
 })
 export class RecipeBookComponent {
   recipe: Recipe;
-  showRecipeDetail(event: Recipe) {
-    console.log('EVENT FIRING', event);
-    this.recipe = event;
-  }
+  // showRecipeDetail(event: Recipe) {
+  //   console.log('EVENT FIRING', event);
+  //   this.recipe = event;
+  // }
 }

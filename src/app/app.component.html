@@ -1,3 +1,5 @@
+<!-- <app-header (menuSelect)="updateCurrentPage($event)"></app-header> -->
+<!-- The above is useful, but now we use the Suscrib method in the ts file -->
 <app-header (menuSelect)="updateCurrentPage($event)"></app-header>
 <div class="container">
   <app-recipe-book *ngIf="currentPage == 'recipe'"></app-recipe-book>
