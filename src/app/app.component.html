@@ -2,7 +2,9 @@
 <!-- The above is useful, but now we use the Suscrib method in the ts file -->
 <app-header (menuSelect)="updateCurrentPage($event)"></app-header>
 <div class="container">
-  <app-recipe-book *ngIf="currentPage == 'recipe'"></app-recipe-book>
-  <app-shopping *ngIf="currentPage == 'shopping'"></app-shopping>
+  <!-- <app-recipe-book *ngIf="currentPage == 'recipe'"></app-recipe-book>
+  <app-shopping *ngIf="currentPage == 'shopping'"></app-shopping> -->
+
+  <router-outlet></router-outlet>
 </div>
 <hr />

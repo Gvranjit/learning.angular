@@ -6,40 +6,36 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Ingredient } from '../../shared/ingredient.model';
+import { ShoppingListService } from '../../shared/shoppingList.service';
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css'],
 })
-export class ShoppingListComponent implements OnInit, OnChanges {
-  ingredients: Ingredient[] = [
-    new Ingredient('Apple', 4, 'NORMAL'),
-    new Ingredient('Banana', 6, 'URGENT'),
-  ];
+export class ShoppingListComponent implements OnInit {
+  constructor(public shoppingListService: ShoppingListService) {}
+  ingredients: Ingredient[] = [];
   @Input() mainTitle: string;
 
   ngOnInit(): void {
-    console.log('ON INIT WORKS');
+    this.ingredients = this.shoppingListService.ingredients;
+    //add a listener
+    this.shoppingListService.ingredientListUpdated.subscribe(
+      (event: Ingredient[]) => {
+        this.ingredients = event;
+      }
+    );
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('On changes works. The changes are ', changes);
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log('On changes works. The changes are ', changes);I am g
+  // }
 
   updateValue(e: {
     name: string;
     amount: number;
     urgency: 'URGENT' | 'NORMAL';
   }) {
-    let found;
-    for (let ingredient of this.ingredients) {
-      if (ingredient.name === e.name) {
-        ingredient.amount += e.amount;
-        found = true;
-      }
-    }
-    if (!found) {
-      this.ingredients.push(new Ingredient(e.name, e.amount, e.urgency));
-    }
+    this.shoppingListService.addOrUpdateIngredients(e);
   }
 }

@@ -13,6 +13,7 @@
         class="list-group-item"
         style="cursor: pointer"
         *ngFor="let ingredient of ingredients"
+        [routerLink]="['/shopping', ingredient.id]"
       >
         {{ ingredient.name }}{{ ingredient.amount > 1 ? "s" : "" }} ({{
           ingredient.amount

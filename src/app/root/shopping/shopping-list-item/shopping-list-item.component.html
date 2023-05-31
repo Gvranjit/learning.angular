@@ -1,0 +1,11 @@
+<div class="container">
+  <p>Shopping list Item is:</p>
+  <div class="row">
+    <ul>
+      <li *ngIf="item; else placeholder">
+        <p>{{ item.name }}</p>
+      </li>
+      <ng-template #placeholder> No such data</ng-template>
+    </ul>
+  </div>
+</div>

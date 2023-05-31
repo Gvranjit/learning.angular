@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { LogService } from './root/shared/log.service';
 import { PageService } from './root/shared/page.service';
 import { RecipeService } from './root/shared/recipe.service';
+import { ShoppingListService } from './root/shared/shoppingList.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [LogService, PageService, RecipeService],
+  providers: [LogService, PageService, RecipeService, ShoppingListService],
 })
 export class AppComponent implements OnInit {
   title = "Gaurav's New Angular App - Only for learning purposes";

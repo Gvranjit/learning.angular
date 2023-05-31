@@ -6,6 +6,8 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { Ingredient } from 'src/app/root/shared/ingredient.model';
+import { ShoppingListService } from 'src/app/root/shared/shoppingList.service';
 
 @Component({
   selector: 'app-shopping-list-edit',
@@ -13,26 +15,22 @@ import {
   styleUrls: ['./shopping-list-edit.component.css'],
 })
 export class ShoppingListEditComponent {
-  @Input() amount: number;
-  @Output() addButtonClicked = new EventEmitter<{
-    name: string;
-    amount: number;
-    urgency: string;
-  }>();
+  constructor(private shoppingListService: ShoppingListService) {}
+  amount: number;
 
   @ViewChild('newItemUrgency') urgency: ElementRef<HTMLInputElement>;
 
   onAddClick(name: string) {
     console.log(
-      'on ad click was triggered and event was emmited',
+      'on addclick was triggered and event was emmited',
       'NAME',
       name,
       'Amount',
       this.amount
     );
-    this.addButtonClicked.emit({
+    this.shoppingListService.addOrUpdateIngredients({
       name,
-      amount: Number(this.amount),
+      amount: this.amount,
       urgency: this.urgency.nativeElement.value,
     });
   }

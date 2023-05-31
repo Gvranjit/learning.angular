@@ -6,9 +6,24 @@
     <!-- <div class="collapse navbar-collapse"> -->
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li><a href="#" (click)="selectMenu('recipe')">Recipe</a></li>
-        <li><a href="#" (click)="selectMenu('shopping')">Shopping List</a></li>
-        <li><a href="#">Dummy option</a></li>
+        <li
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a routerLink="/">Home</a>
+          <!-- Lets try to link to home programatically -->
+        </li>
+        <li
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a (click)="navigateToHome()">Home(p)</a>
+        </li>
+        <li routerLinkActive="active"><a routerLink="/recipe">Recipe</a></li>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/shopping']">Shopping List</a>
+          <!-- the array implementation helps us to construct complex paths easily -->
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" appDropdown>

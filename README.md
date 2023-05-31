@@ -46,6 +46,12 @@
 
 ---
 
+# [(ngModel)]
+
+## Something to remember
+
+- ngModel will not work inside tags ! ~ Unless `name` attribute is specified
+
 # Services & Dependency Injector ( Hierarchical Injector )
 
 ```ts
@@ -77,4 +83,4 @@ constructor () {
 
 - The same instance of the service is shared with all the components down in the hierarchial tree
 - Only define once in provider, in the top-most
-- In order to share data, set emitter in the service , emit from the source component, and subscribe in the target component.
+- In order to share data, set emitter in the service ,invoke a function containg the emit in the service from the source component, and subscribe in the target component.
