@@ -20,8 +20,12 @@ import { ShoppingListItemComponent } from './root/shopping/shopping-list-item/sh
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
-  { path: 'shopping', component: ShoppingComponent },
-  { path: 'shopping/:id', component: ShoppingListItemComponent },
+  {
+    path: 'shopping',
+    component: ShoppingComponent,
+    children: [{ path: 'shopping/:id', component: ShoppingListItemComponent }],
+  },
+
   { path: 'recipe', component: RecipeBookComponent },
 ];
 

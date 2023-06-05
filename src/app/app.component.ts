@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LogService } from './root/shared/log.service';
 import { PageService } from './root/shared/page.service';
 import { RecipeService } from './root/shared/recipe.service';
 import { ShoppingListService } from './root/shared/shoppingList.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +11,25 @@ import { ShoppingListService } from './root/shared/shoppingList.service';
   styleUrls: ['./app.component.css'],
   providers: [LogService, PageService, RecipeService, ShoppingListService],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = "Gaurav's New Angular App - Only for learning purposes";
   name = 'Code';
   currentPage = 'shopping';
+  paramsSubscription: Subscription;
   constructor(
     private logService: LogService,
     private pageService: PageService
   ) {}
   ngOnInit() {
-    this.pageService.pageSelected.subscribe((e: MenuOptions) => {
-      this.currentPage = e;
-      this.logService.logToConsole('CURRENT PAGE IS :' + this.currentPage);
-    });
+    this.paramsSubscription = this.pageService.pageSelected.subscribe(
+      (e: MenuOptions) => {
+        this.currentPage = e;
+        this.logService.logToConsole('CURRENT PAGE IS :' + this.currentPage);
+      }
+    );
   }
-  updateCurrentPage(e: string) {}
+  ngOnDestroy() {}
+  updateCurrentPage(e: string) {
+    this.paramsSubscription.unsubscribe();
+  }
 }
