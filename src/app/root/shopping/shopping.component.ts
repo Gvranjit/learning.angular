@@ -7,5 +7,5 @@ import { ShoppingListService } from '../shared/shoppingList.service';
   styleUrls: ['./shopping.component.css'],
 })
 export class ShoppingComponent {
-  shoppingTitle: string;
+  shoppingTitle: string = 'Shopping list';
 }
