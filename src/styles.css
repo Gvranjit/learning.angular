@@ -9,3 +9,15 @@
 .link:active {
   transform: scale(1.05);
 }
+.fullpage {
+  height: 75vh;
+}
+
+.fullview {
+  height: 100%;
+}
+
+.center {
+  display: grid;
+  place-content: center;
+}

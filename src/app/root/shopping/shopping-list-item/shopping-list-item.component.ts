@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ShoppingListService } from '../../shared/shoppingList.service';
-import { Ingredient } from '../../shared/ingredient.model';
+import { ShoppingListService } from '../../../shared/shoppingList.service';
+import { Ingredient } from '../../../shared/ingredient.model';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -18,7 +18,7 @@ export class ShoppingListItemComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
+    this.paramsSubscription = this.route.params.subscribe((params) => {
       this.item = this.shoppingListService.ingredients.find((ingredient) => {
         return ingredient.id == params.id;
       });

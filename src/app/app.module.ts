@@ -14,20 +14,26 @@ import { RecipeDetailComponent } from './root/recipe-book/recipe-detail/recipe-d
 import { RecipeComponent } from './root/recipe-book/recipe/recipe.component';
 import { HeaderComponent } from './root/header/header.component';
 import { ShoppingListEditComponent } from './root/shopping/shopping-list/shopping-list-edit/shopping-list-edit.component';
-import { DropdownDirective } from './root/shared/dropdown.directive';
-import { RouterModule, Routes } from '@angular/router';
+import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListItemComponent } from './root/shopping/shopping-list-item/shopping-list-item.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './shared/auth-guard-service';
+import { AuthService } from './shared/auth.service';
+import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
 
-const appRoutes: Routes = [
-  { path: '', component: AppComponent },
-  {
-    path: 'shopping',
-    component: ShoppingComponent,
-    children: [{ path: ':id', component: ShoppingListItemComponent }],
-  },
+//MOVED THE BELOW TO APP ROUTING MODULE FILE
+// const appRoutes: Routes = [
+//   { path: '', component: AppComponent },
+//   {
+//     path: 'shopping',
+//     component: ShoppingComponent,
+//     children: [{ path: ':id', component: ShoppingListItemComponent }],
+//   },
 
-  { path: 'recipe', component: RecipeBookComponent },
-];
+//   { path: 'recipe', component: RecipeBookComponent },
+//   { path: 'not-found', component: PageNotFoundComponent },
+//   { path: '**', redirectTo: 'not-found' },
+// ];
 
 @NgModule({
   declarations: [
@@ -44,14 +50,10 @@ const appRoutes: Routes = [
     HeaderComponent,
     DropdownDirective,
     ShoppingListItemComponent,
+    PageNotFoundComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes),
-  ],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [AuthService, AuthGuard, CanDeactivateGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { LogService } from './root/shared/log.service';
-import { PageService } from './root/shared/page.service';
-import { RecipeService } from './root/shared/recipe.service';
-import { ShoppingListService } from './root/shared/shoppingList.service';
+
 import { Subscription } from 'rxjs';
+import { LogService } from './shared/log.service';
+import { PageService } from './shared/page.service';
+import { RecipeService } from './shared/recipe.service';
+import { ShoppingListService } from './shared/shoppingList.service';
+import { AuthService } from './shared/auth.service';
 
 @Component({
   selector: 'app-root',
