@@ -21,6 +21,8 @@ import { AuthService } from './shared/auth.service';
 import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
 import { ShoppingListResolverService } from './shared/shopping-list.resolver.service';
 import { ShoppingListService } from './shared/shoppingList.service';
+import { HomeComponent } from './home/home.component';
+import { RecipeListItemEditComponent } from './recipe-book/recipe-list-item-edit/recipe-list-item-edit.component';
 
 //MOVED THE BELOW TO APP ROUTING MODULE FILE
 // const appRoutes: Routes = [
@@ -51,6 +53,8 @@ import { ShoppingListService } from './shared/shoppingList.service';
     DropdownDirective,
     ShoppingListItemComponent,
     PageNotFoundComponent,
+    HomeComponent,
+    RecipeListItemEditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [

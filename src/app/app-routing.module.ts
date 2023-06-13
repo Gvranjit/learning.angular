@@ -8,8 +8,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './shared/auth-guard-service';
 import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
 import { ShoppingListResolverService } from './shared/shopping-list.resolver.service';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   {
     path: 'shopping',
     component: ShoppingComponent,
