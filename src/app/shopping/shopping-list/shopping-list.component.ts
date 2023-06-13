@@ -5,8 +5,8 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { Ingredient } from '../../../shared/ingredient.model';
-import { ShoppingListService } from '../../../shared/shoppingList.service';
+import { Ingredient } from '../../shared/ingredient.model';
+import { ShoppingListService } from '../../shared/shoppingList.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-shopping-list',

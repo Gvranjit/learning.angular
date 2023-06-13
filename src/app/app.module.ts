@@ -4,18 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { RootComponent } from './root/root.component';
-import { ShoppingListComponent } from './root/shopping/shopping-list/shopping-list.component';
-import { IngredientComponent } from './root/shopping/ingredient/ingredient.component';
-import { ShoppingComponent } from './root/shopping/shopping.component';
-import { RecipeBookComponent } from './root/recipe-book/recipe-book.component';
-import { RecipeListComponent } from './root/recipe-book/recipe-list/recipe-list.component';
-import { RecipeDetailComponent } from './root/recipe-book/recipe-detail/recipe-detail.component';
-import { RecipeComponent } from './root/recipe-book/recipe/recipe.component';
-import { HeaderComponent } from './root/header/header.component';
-import { ShoppingListEditComponent } from './root/shopping/shopping-list/shopping-list-edit/shopping-list-edit.component';
+import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
+import { IngredientComponent } from './shopping/ingredient/ingredient.component';
+import { ShoppingComponent } from './shopping/shopping.component';
+import { RecipeBookComponent } from './recipe-book/recipe-book.component';
+import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
+import { RecipeComponent } from './recipe-book/recipe-list-item/recipe-list-item.component';
+import { HeaderComponent } from './header/header.component';
+import { ShoppingListEditComponent } from './shopping/shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
-import { ShoppingListItemComponent } from './root/shopping/shopping-list-item/shopping-list-item.component';
+import { ShoppingListItemComponent } from './shopping/shopping-list-item/shopping-list-item.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './shared/auth-guard-service';
 import { AuthService } from './shared/auth.service';
@@ -40,7 +39,6 @@ import { ShoppingListService } from './shared/shoppingList.service';
 @NgModule({
   declarations: [
     AppComponent,
-    RootComponent,
     ShoppingComponent,
     ShoppingListComponent,
     ShoppingListEditComponent,

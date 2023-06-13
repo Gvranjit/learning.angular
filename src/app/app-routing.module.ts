@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ShoppingComponent } from './root/shopping/shopping.component';
-import { ShoppingListItemComponent } from './root/shopping/shopping-list-item/shopping-list-item.component';
-import { RecipeBookComponent } from './root/recipe-book/recipe-book.component';
+import { ShoppingComponent } from './shopping/shopping.component';
+import { ShoppingListItemComponent } from './shopping/shopping-list-item/shopping-list-item.component';
+import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { RootComponent } from './root/root.component';
 import { AuthGuard } from './shared/auth-guard-service';
 import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
 import { ShoppingListResolverService } from './shared/shopping-list.resolver.service';
 
 const routes: Routes = [
-  { path: '', component: RootComponent },
   {
     path: 'shopping',
     component: ShoppingComponent,
