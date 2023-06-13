@@ -4,10 +4,10 @@ import { RecipeService } from '../../shared/recipe.service';
 
 @Component({
   selector: 'app-recipe',
-  templateUrl: './recipe.component.html',
-  styleUrls: ['./recipe.component.css'],
+  templateUrl: './recipe-list-item.component.html',
+  styleUrls: ['./recipe-list-item.component.css'],
 })
-export class RecipeComponent {
+export class RecipeListItemComponent {
   @Input() recipe: Recipe;
   // @Output() recipeSelect = new EventEmitter<Recipe>();
   //when one of the recipes is clicked, emit their data so that it can caught by the details component

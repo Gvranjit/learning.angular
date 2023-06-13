@@ -10,7 +10,7 @@ import { ShoppingComponent } from './shopping/shopping.component';
 import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
-import { RecipeComponent } from './recipe-book/recipe-list-item/recipe-list-item.component';
+import { RecipeListItemComponent } from './recipe-book/recipe-list-item/recipe-list-item.component';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingListEditComponent } from './shopping/shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
@@ -46,7 +46,7 @@ import { ShoppingListService } from './shared/shoppingList.service';
     RecipeBookComponent,
     RecipeListComponent,
     RecipeDetailComponent,
-    RecipeComponent,
+    RecipeListItemComponent,
     HeaderComponent,
     DropdownDirective,
     ShoppingListItemComponent,
