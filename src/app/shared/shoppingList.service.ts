@@ -3,7 +3,7 @@ import { Ingredient } from './ingredient.model';
 
 @Injectable()
 export class ShoppingListService {
-  ingredients: Ingredient[] = [
+  private ingredients: Ingredient[] = [
     new Ingredient('Apple', 4, 'NORMAL'),
     new Ingredient('Banana', 6, 'URGENT'),
   ];
@@ -23,5 +23,12 @@ export class ShoppingListService {
     }
     // after update is complete emit
     this.ingredientListUpdated.emit(this.ingredients);
+  }
+
+  //consider the ingredients are being pulled from a database or api, which means it's going to be async
+  getIngredientsList() {
+    return new Promise<Ingredient[]>((resolve) => {
+      resolve(this.ingredients);
+    });
   }
 }

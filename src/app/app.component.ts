@@ -11,7 +11,7 @@ import { AuthService } from './shared/auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [LogService, PageService, RecipeService, ShoppingListService],
+  providers: [LogService, PageService, RecipeService],
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = "Gaurav's New Angular App - Only for learning purposes";

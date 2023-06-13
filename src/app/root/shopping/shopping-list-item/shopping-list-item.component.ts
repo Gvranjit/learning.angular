@@ -18,9 +18,15 @@ export class ShoppingListItemComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.paramsSubscription = this.route.params.subscribe((params) => {
-      this.item = this.shoppingListService.ingredients.find((ingredient) => {
-        return ingredient.id == params.id;
+    this.paramsSubscription = this.route.params.subscribe(async (params) => {
+      //   this.item = this.shoppingListService.ingredients.find((ingredient) => {
+      //     return ingredient.id == params.id;
+      //   }); //This doesnt work as ingredients is not only fetchable async
+      //do something here to do the task asynchronously
+      this.shoppingListService.getIngredientsList().then((ingredients) => {
+        this.item = ingredients.find((ingredient) => {
+          return ingredient.id == params.id;
+        });
       });
     });
   }

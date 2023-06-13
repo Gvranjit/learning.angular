@@ -8,12 +8,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RootComponent } from './root/root.component';
 import { AuthGuard } from './shared/auth-guard-service';
 import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
+import { ShoppingListResolverService } from './shared/shopping-list.resolver.service';
 
 const routes: Routes = [
   { path: '', component: RootComponent },
   {
     path: 'shopping',
     component: ShoppingComponent,
+    resolve: { ingredients: ShoppingListResolverService },
     canActivateChild: [AuthGuard],
 
     children: [
@@ -30,8 +32,9 @@ const routes: Routes = [
   { path: '**', redirectTo: 'not-found' },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes), RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  // imports: [RouterModule.forRoot(routes, { useHash: false })], // this is the default useHash which allows for prettier routing but might cause issues during deployment which is dependent on the configuration of the server where the app is being hosted in.
   exports: [RouterModule],
-  providers: [AuthGuard],
+  providers: [],
 })
 export class AppRoutingModule {}

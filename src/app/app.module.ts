@@ -20,6 +20,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './shared/auth-guard-service';
 import { AuthService } from './shared/auth.service';
 import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
+import { ShoppingListResolverService } from './shared/shopping-list.resolver.service';
+import { ShoppingListService } from './shared/shoppingList.service';
 
 //MOVED THE BELOW TO APP ROUTING MODULE FILE
 // const appRoutes: Routes = [
@@ -53,7 +55,13 @@ import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
     PageNotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [AuthService, AuthGuard, CanDeactivateGuard],
+  providers: [
+    AuthService,
+    AuthGuard,
+    CanDeactivateGuard,
+    ShoppingListResolverService,
+    ShoppingListService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
