@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Recipe } from './recipe-list-item.model';
 import { RecipeService } from '../../shared/recipe.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe',
@@ -9,12 +10,8 @@ import { RecipeService } from '../../shared/recipe.service';
 })
 export class RecipeListItemComponent {
   @Input() recipe: Recipe;
+  @Input() index: number;
   // @Output() recipeSelect = new EventEmitter<Recipe>();
   //when one of the recipes is clicked, emit their data so that it can caught by the details component
-  constructor(private recipeService: RecipeService) {}
-
-  onRecipeSelect(event: Recipe) {
-    // this.recipeSelect.emit(event);
-    this.recipeService.selectRecipe(event);
-  }
+  constructor(public recipeService: RecipeService) {}
 }

@@ -1,1 +1,70 @@
-<p>recipe-list-item-edit works!</p>
+<form>
+  <div *ngIf="updatedRecipeData">
+    <div class="row">
+      <div class="col-xs-12">
+        <img
+          [src]="updatedRecipeData.imagePath"
+          alt=" There should be an  image here "
+          class="img-responsive"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <form class="form-floating">
+          <label for="recipeName">Recipe name</label>
+          <input
+            class="form-control"
+            type="text"
+            id="recipeName"
+            placeholder="johndoe"
+            [(ngModel)]="updatedRecipeData.name"
+            name="recipeName"
+          />
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <label for="description">Description</label>
+        <input
+          name="description"
+          id="description"
+          cols="5"
+          rows="5"
+          class="form-control"
+          [(ngModel)]="updatedRecipeData.description"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <label for="description">Ingredient</label>
+        <input
+          name="ingredient"
+          id="ingredient"
+          cols="5"
+          rows="5"
+          class="form-control"
+          [(ngModel)]="updatedRecipeData.ingredient"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTONS FOR UPDATING -->
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group">
+        <button class="btn btn-success" (click)="onUpdate()">Update</button>
+        <button class="btn btn-primary" (click)="onReset()">
+          Discard Changes
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

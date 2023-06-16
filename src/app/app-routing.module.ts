@@ -9,6 +9,8 @@ import { AuthGuard } from './shared/auth-guard-service';
 import { CanDeactivateGuard } from './shared/can-deactivate-guard.service';
 import { ShoppingListResolverService } from './shared/shopping-list.resolver.service';
 import { HomeComponent } from './home/home.component';
+import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
+import { RecipeListItemEditComponent } from './recipe-book/recipe-list-item-edit/recipe-list-item-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +29,14 @@ const routes: Routes = [
     ],
   },
 
-  { path: 'recipe', component: RecipeBookComponent },
+  {
+    path: 'recipe',
+    component: RecipeBookComponent,
+    children: [
+      { path: 'details/:index', component: RecipeDetailComponent },
+      { path: 'edit/:index', component: RecipeListItemEditComponent },
+    ],
+  },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];
