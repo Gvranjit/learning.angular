@@ -14,7 +14,7 @@ import { AuthService } from './shared/auth.service';
   providers: [LogService, PageService, RecipeService],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = "Gaurav's New Angular App - Only for learning purposes";
+  title = 'Learning Angular';
   name = 'Code';
   currentPage = 'shopping';
   paramsSubscription: Subscription;
