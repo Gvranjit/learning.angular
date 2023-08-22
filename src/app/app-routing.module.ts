@@ -11,6 +11,7 @@ import { ShoppingListResolverService } from './shared/shopping-list.resolver.ser
 import { HomeComponent } from './home/home.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { RecipeListItemEditComponent } from './recipe-book/recipe-list-item-edit/recipe-list-item-edit.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
       { path: 'edit/:index', component: RecipeListItemEditComponent },
     ],
   },
+  { path: 'test', component: TestComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];
