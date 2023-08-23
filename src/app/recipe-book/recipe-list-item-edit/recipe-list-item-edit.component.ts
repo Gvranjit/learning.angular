@@ -1,9 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RecipeDetailComponent } from '../recipe-detail/recipe-detail.component';
 import { Recipe } from '../recipe-list-item/recipe-list-item.model';
 import { RecipeService } from 'src/app/shared/recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-list-item-edit',
@@ -12,6 +17,13 @@ import { Location } from '@angular/common';
 })
 export class RecipeListItemEditComponent implements OnInit {
   index: number = +this.route.snapshot.params['index'];
+
+  recipeDataForm = new FormGroup({
+    recipeName: new FormControl('', [Validators.maxLength(4)]),
+    recipeDescription: new FormControl('', []),
+    recipeIngredient: new FormControl('', []),
+  });
+
   constructor(
     private recipeService: RecipeService,
     private route: ActivatedRoute,
@@ -29,7 +41,13 @@ export class RecipeListItemEditComponent implements OnInit {
   }
 
   onUpdate() {
-    this.recipeService.updateRecipe(this.index, this.updatedRecipeData);
+    const updatedRecipeData: Partial<Recipe> = {
+      name: this.recipeDataForm.get('recipeName')?.value,
+      description: this.recipeDataForm.get('recipeDescription')?.value,
+      ingredient: this.recipeDataForm.get('recipeIngredient')?.value,
+    };
+    console.info(updatedRecipeData);
+    this.recipeService.updateRecipe(this.index, updatedRecipeData);
     this.location.back();
   }
   onReset() {

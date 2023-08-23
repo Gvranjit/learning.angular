@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
 import { IngredientComponent } from './shopping/ingredient/ingredient.component';
 import { ShoppingComponent } from './shopping/shopping.component';
@@ -58,7 +58,7 @@ import { TestComponent } from './test/test.component';
     RecipeListItemEditComponent,
     TestComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
     AuthService,
     AuthGuard,
